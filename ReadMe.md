@@ -2,7 +2,7 @@
 
 IDentif.AI, a dynamic optimization AI-based platform, identifies the drug-dose parameter space by harnessing the quadratic relationship between biological responses to external perturbations, such as drug/dose inputs [1]. IDentif.AI analysis of the drug-dose parameter space identifies drug-drug interactions and ranks optimal drug-dosage combinations.
 
-This package include the in vitro experimental data sets of the 12 drugs currently being explored in clinical trials to combat the COVID-19 disease *(see [manuscript](https://www.medrxiv.org/content/10.1101/2020.05.04.20088104v1))*. The Graphpad Prism file was used to plot dose-response curves and to derive efficacy and cytotoxicity concentrations (EC and CC, respectively) at 10, 20 and 50 percent absolute levels. The Python and Matlab scripts were used to:
+This package include the in vitro experimental data sets of the 12 drugs currently being explored in clinical trials to combat the COVID-19 disease *(see [manuscript](https://www.medrxiv.org/content/10.1101/2020.05.04.20088104v1))*. The Python and Matlab scripts were used to:
  - Normalise and calculate the raw experimental data into desired outputs: Vero E6, AC16 and THLE-2 %Cytotoxicity and viral activity %Inhibition (Vero E6) using the formula in [Supplementary Materials and Methods](https://www.medrxiv.org/content/10.1101/2020.05.04.20088104v1.supplementary-material).
  - Perform IDentif.AI second-order polynomial regression analysis on the resulting %Cytotoxicity and %Inhibition calculations, identify drug-drug interactions and rank optimal drug-dose combinations
  - Provide a set of graphical and statistical reports of IDentif.AI analysis
@@ -47,9 +47,6 @@ The required Python modules are specified in requirements.txt. The installation 
 	
  - Expected output: *Monotherapy_result.xlsx*
  
-#### Plot dose-response curve
- - Copy and paste individual drug data from individual sheets in *Monotherapy_result.xlsx* into a data table in *dose-response curves.pzfx* Prism file
- - Expected outputs: 1) dose-response curve, 2) EC and CC at 10, 20, 50% absolute levels.
 
 ## OACD
 
