@@ -32,6 +32,7 @@ Graphpad Prism: [8.2](https://www.graphpad.com/scientific-software/prism/)
 
 Open the terminal, navigate to this folder, type:
 >pip install --upgrade pip
+
 >pip install -r -requirements.txt
 
 The required Python modules are specified in requirements.txt. The installation process should only takes a few seconds.
