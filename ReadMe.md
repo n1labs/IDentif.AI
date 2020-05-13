@@ -21,7 +21,7 @@ validation/: contains input xlsx file and Python script
 
 # System requirements
 
-Python:[v3.7.7](https://www.python.org/downloads/release/python-377/)
+Python: [v3.7.7](https://www.python.org/downloads/release/python-377/)
 
 Matlab: [2020a](https://www.mathworks.com/downloads/)
 
@@ -57,7 +57,7 @@ The required Python modules are specified in requirements.txt. The installation 
 	Expected output: *OACD_result.xlsx*, which is the input file for MATLAB codes (*OACD_part1.mlx* and *OACD_part2.mlx* files)
 
 #### IDentif.AI regression analysis
-- *allcomb.m* is a supporting function for the MATLAB codes [1]
+- *allcomb.m* is a supporting function for the MATLAB codes [2]
 
 - On MATLAB, run *OACD_part1.mlx*. 
 	Expected output: *regr_final.mat*, regression output model file
