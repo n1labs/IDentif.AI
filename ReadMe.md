@@ -11,16 +11,22 @@ This package include the in vitro experimental data sets of the 12 drugs current
 ### Main structure:
 
 check_dmso_effect/: contains input xlsx file and Python script
+
 monotherapy/: contains input xlsx file, Python script and Graphpad PRISM template file. 
+
 oacd/: contains input xlsx file, Python script and MATLAB scripts 
+
 validation/: contains input xlsx file and Python script 
 
 
 # System requirements
 
-Python:    [v3.7.7](https://www.python.org/downloads/release/python-377/)
+Python:[v3.7.7](https://www.python.org/downloads/release/python-377/)
+
 Matlab: [2020a](https://www.mathworks.com/downloads/)
+
 Graphpad Prism: [8.2](https://www.graphpad.com/scientific-software/prism/)
+
 
 # Installation
 
