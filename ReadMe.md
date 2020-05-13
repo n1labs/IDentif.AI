@@ -75,7 +75,7 @@ The required Python modules are specified in requirements.txt. The installation 
 
 ## Additional: Verify DMSO non-cytotoxicity effect
 - Open Terminal, navigate to *IDentifAI/check_dmso_effect*, type to run Python script:
-	> python .\check_dmso.py > dmso_stats.txt
+	> python3 check_dmso.py > dmso_stats.txt
 
 	Expected output: *dmso_stats.txt*
 
