@@ -116,30 +116,8 @@ def do_non_normality_procedure(df, combo, file_name, fig_name):
         for i, j in zip(r, c):
             if i != j:
                 print('Combo:', combo[i], combo[j], ', value:', heatmap.iloc[i, j])
-
-        heatmap.index = combo
-        heatmap.columns = combo
-
-        plot_heatmap(heatmap, file_name, fig_name)
     else:
         print('Kruskal-Wallis test: no significant difference, p =', p, 'H', hstats, 'effect size =', effect_size)
-
-
-
-def plot_heatmap(df, file_name, fig_name):
-    fig, ax = plt.subplots()
-    ax.set_title(fig_name)
-    args = {'linewidths': 0.5,
-            'linecolor': '0.5',
-            'clip_on': False,
-            'square': True,
-            'cbar_ax_bbox': [0.82, 0.35, 0.04, 0.3]
-            }
-    sp.sign_plot(df, **args)
-
-    Path("./figure/heatmap").mkdir(parents=True, exist_ok=True)
-    plt.savefig('./figure/heatmap/' + file_name + '_' + fig_name + '.png')
-    plt.close(fig)
 
 
 def plot_barplot(df, x_label, file_name, fig_name):
@@ -154,15 +132,11 @@ def plot_barplot(df, x_label, file_name, fig_name):
     # ax.set_xlabel('Drug Combination Number', fontsize=23)
     ax.set_ylabel(fig_name, fontsize=23)
     ax.yaxis.set_tick_params(labelsize=23)
-    # ax.yaxis.grid(True)
-    # ax.xaxis.grid(True)
-    # if plot_name == '% Vero E6 Inhibition':
-    #     plt.ylim((0, 130))
 
     ax.bar(x, y, yerr=error_bar, align='center', ecolor='black', capsize=5)
 
-    Path("./figure/barplot").mkdir(parents=True, exist_ok=True)
-    plt.savefig('./figure/barplot/' + file_name + '_' + fig_name + '.png')
+    Path("./barplots").mkdir(parents=True, exist_ok=True)
+    plt.savefig('./barplots/' + file_name + '_' + fig_name + '.png')
     plt.close(fig)
 
 
@@ -204,8 +178,8 @@ def plot_multi_barplot(df1, df2, df3, combo, custom_order, labels, file_name, fi
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
 
-    Path("./figure/barplot").mkdir(parents=True, exist_ok=True)
-    plt.savefig('./figure/barplot/' + file_name + '_' + fig_name + '.png')
+    Path("./barplots").mkdir(parents=True, exist_ok=True)
+    plt.savefig('./barplots/' + file_name + '_' + fig_name + '.png')
     plt.close(fig)
 
 def sort_df(df, combo, custom_order):
@@ -229,7 +203,7 @@ def validate_y_output(df, combo, custom_order, file_name, fig_name):
 
     # bar graphs for visualisation
     df, x_label = sort_df(df, combo, custom_order)
-    # plot_barplot(df, x_label, file_name, fig_name)
+    plot_barplot(df, x_label, file_name, fig_name)
 
     print()
 
@@ -268,22 +242,22 @@ if __name__ == '__main__':
     # note: delete 2 extra drugs in combo_A [2,3], and custom_order_A [15,16] before running stats tests
     combo_A = [1, 6, 9, 10, 11, 12, 13, 14, 18, 20, 21, 22, 25, 27]
     custom_order_A = [3, 0, 0, 0, 0,       # combo 1-5
-                      5, 0, 0, 2, 8,      # combo 6-10
-                      11, 6, 7, 12, 0,    # combo 11-15
-                      0, 0, 4, 0, 1,     # combo 16-20
-                      9, 10, 0, 0, 13,      # combo 21-25
+                      5, 0, 0, 2, 8,       # combo 6-10
+                      11, 6, 7, 12, 0,     # combo 11-15
+                      0, 0, 4, 0, 1,       # combo 16-20
+                      9, 10, 0, 0, 13,     # combo 21-25
                       0, 14]               # combo 26-27
 
 
     # stats tests + plot single bar plot
-    # validate_y_output(df_inhibition, combo_A, custom_order_A, 'test', '% Inhibition')
-    # validate_y_output(df_cyt_vero, combo_A, custom_order_A, 'fig2b',  '% Vero E6 Cytotoxicity')
-    # validate_y_output(df_cyt_ac, combo_A, custom_order_A, 'fig2b',  '% AC16 Cytotoxicity')
-    # validate_y_output(df_cyt_thle, combo_A, custom_order_A, 'fig2b', '% THLE-2 Cytotoxicity')
+    validate_y_output(df_inhibition, combo_A, custom_order_A, 'fig2a', '% Inhibition')
+    validate_y_output(df_cyt_vero, combo_A, custom_order_A, 'fig2b_temp',  '% Vero E6 Cytotoxicity')
+    validate_y_output(df_cyt_ac, combo_A, custom_order_A, 'fig2b_temp',  '% AC16 Cytotoxicity')
+    validate_y_output(df_cyt_thle, combo_A, custom_order_A, 'fig2b_temp', '% THLE-2 Cytotoxicity')
 
     # plot multiple bar plots: Cytotox
-    # plot_multi_barplot(df_cyt_vero, df_cyt_ac, df_cyt_thle, combo_A, custom_order_A,
-    #                  ['Vero E6', 'AC16', 'THLE-2'], 'fig2b', '% Cytotoxicity')
+    plot_multi_barplot(df_cyt_vero, df_cyt_ac, df_cyt_thle, combo_A, custom_order_A,
+                     ['Vero E6', 'AC16', 'THLE-2'], 'fig2b', '% Cytotoxicity')
 
 
     # compile results and save to Excel
