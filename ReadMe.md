@@ -21,20 +21,26 @@ validation/: contains input xlsx file and Python script
 
 # System requirements
 
+This package is supported for _macOS_ and _Linux_. The package has been tested on the following operating systems:
+
+ - macOS: Catalina (10.15.3)
+ - Windows: 10
+
+
 Python: [v3.7.7](https://www.python.org/downloads/release/python-377/)
 
 Matlab: [2020a](https://www.mathworks.com/downloads/)
 
 
 
-# Installation
+# Installation guide
 
 Open the terminal, navigate to this folder, type:
 >pip install --upgrade pip
 
 >pip install -r -requirements.txt
 
-The required Python modules are specified in requirements.txt. The installation process should only takes a few seconds.
+The required Python dependencies are specified in requirements.txt. The installation process should only takes a few seconds.
 
 
 # Instructions for use
